@@ -103,7 +103,7 @@ class TransactionController extends Controller
 
         $member = Member::where('phone_number', $phoneNumber)->first();
         if ($member) {
-            $points = $member['points'] + $pointsEarned;
+            $points = $member['points'];
             $memberName = $member->name;
             $isNewMember = false;
         }
@@ -147,7 +147,7 @@ class TransactionController extends Controller
         ]);
 
         if ($validatedData['points_used']) {
-            $member->points = 0;
+            $member->points = $validatedData['points_earned'];
         } else {
             $member->points += $validatedData['points_earned'];
         }
