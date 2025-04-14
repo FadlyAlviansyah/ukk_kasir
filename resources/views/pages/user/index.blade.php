@@ -67,7 +67,7 @@
                 </div>
               </div>
               <div class="table-responsive">
-                <table class="table table-hover">
+                <table class="table" id="userTable">
                   <thead>
                     <tr>
                       <th scope="col">#</th>
@@ -83,7 +83,7 @@
                     @endphp
                     @foreach ($users as $user)
                       <tr>
-                        <th>{{ $i++ }}</th>
+                        <th class="text-start">{{ $i++ }}</th>
                         <td>{{ $user['email'] }}</td>
                         <td>{{ $user['name'] }}</td>
                         <td class="text-capitalize">{{ $user['role'] }}</td>
@@ -109,3 +109,16 @@
     </div>
   </div>
 @endsection
+
+@push('script')
+  <script>
+    $(document).ready(function(){
+      $('#userTable').DataTable({
+        "columnDefs": [
+          {"width": "50px", "target": 0},
+          {"orderable": false, "target": 4},
+        ]
+      });
+    });
+  </script>
+@endpush
