@@ -69,8 +69,10 @@ class ProductController extends Controller
         ]);
 
         if($request->image) {
-            Storage::delete($request->oldImage);
             $validatedData["image"] = $request->file("image")->store('images');
+            if($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
         }
 
         Product::where('id', $id)->update($validatedData);

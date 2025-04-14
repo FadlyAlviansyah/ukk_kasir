@@ -38,7 +38,7 @@
                     <div class="form-group">
                       <label for="name" class="col-md-12">Nama Produk <span class="text-danger">*</span></label>
                       <div class="col-md-12">
-                        <input type="text" name="name" id="name" value="{{ $product['name'] }}" class="form-control form-control-line @error('name') is-invalid @enderror">
+                        <input type="text" name="name" id="name" value="{{ old('name', $product['name']) }}" class="form-control form-control-line @error('name') is-invalid @enderror">
                         @error('name')
                           <div class="invalid-feedback">{{ $message }}</div>
                         @enderror

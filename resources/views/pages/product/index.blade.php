@@ -103,48 +103,48 @@
                                 @method('DELETE')
                                 <button class="btn btn-danger" onclick="showDeleteConfirmationAlert(event, this.form)">Hapus</button>
                               </form>
-                            </div>
-                          </td>
-                        @endif
-                      </tr>
-                      <form action="{{ route('product.updateStock', $product['id']) }}" method="POST">
-                        @csrf
-                        @method('patch')
-                        <div class="modal fade" id="updateStockModal-{{ $product['id'] }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                          <div class="modal-dialog">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Update Stok Produk</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                              </div>
-                              <div class="modal-body">
-                                <div class="row">
-                                  <div class="col-md-12">
-                                    <div class="form-group">
-                                      <label for="" class="col-md-12">Nama Produk <span class="text-danger">*</span></label>
-                                      <div class="col-md-12">
-                                        <input type="text" name="name" value="{{ $product['name'] }}" class="form-control form-control-line" readonly>
+                              <form action="{{ route('product.updateStock', $product['id']) }}" method="POST">
+                                @csrf
+                                @method('patch')
+                                <div class="modal fade" id="updateStockModal-{{ $product['id'] }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Update Stok Produk</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                       </div>
-                                    </div>
-                                  </div>
-                                  <div class="col-md-12">
-                                    <div class="form-group">
-                                      <label for="" class="col-md-12">Stok <span class="text-danger">*</span></label>
-                                      <div class="col-md-12">
-                                        <input type="number" name="stock" value="{{ $product['stock'] }}" class="form-control form-control-line">
+                                      <div class="modal-body">
+                                        <div class="row">
+                                          <div class="col-md-12">
+                                            <div class="form-group">
+                                              <label for="" class="col-md-12">Nama Produk <span class="text-danger">*</span></label>
+                                              <div class="col-md-12">
+                                                <input type="text" name="name" value="{{ $product['name'] }}" class="form-control form-control-line" readonly>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="col-md-12">
+                                            <div class="form-group">
+                                              <label for="" class="col-md-12">Stok <span class="text-danger">*</span></label>
+                                              <div class="col-md-12">
+                                                <input type="number" name="stock" value="{{ $product['stock'] }}" class="form-control form-control-line">
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                        <button type="submit" class="btn btn-primary">Update</button>
                                       </div>
                                     </div>
                                   </div>
                                 </div>
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                <button type="submit" class="btn btn-primary">Update</button>
-                              </div>
+                              </form>
                             </div>
-                          </div>
-                        </div>
-                      </form>
+                          </td>
+                        @endif
+                      </tr>
                     @endforeach
                   </tbody>
                 </table>
